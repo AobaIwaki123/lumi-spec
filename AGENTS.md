@@ -30,7 +30,8 @@ space/lumi-spec/
 
 ## 境界
 
-- `lumitree`、`lumidive`、`lumitlink`などの各システムは、共通イベント候補へ変換して連携する。
+- `lumitree`、`lumidive`、`lumitlink`などの各システムは、共通イベント候補またはエンティティへ変換して連携する。
+- HTTPでpullする場合は`event-feed.v1`または`entity-feed.v1`のenvelopeを使う。単一レコードendpointは`event-candidate.v1`または`entity.v1`を返す。
 - `lumi-exporter`は候補を消費し、名寄せ判定とレビューアラートを出力する。
 - 元ソースのイベントID、URL、原文タイトルを保持し、判定を再現できるようにする。
 - 破壊的なschema変更はバージョンを上げ、既存のv1を上書きしない。

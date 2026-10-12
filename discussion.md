@@ -8,6 +8,7 @@
 
 - `lumitree`、`lumidive`、`lumitlink`など複数システム間で交換するデータ契約を一元化する。
 - イベント候補の出所と原文を失わず、名寄せ結果を別レコードとして追跡可能にする。
+- 複数のlumiサービスをpullするためのfeed envelopeを定義する。
 - OpenAPIに限定せず、イベント単体で検証しやすいJSON Schemaを主契約にする。
 
 ---
@@ -17,7 +18,7 @@
 | Step | 項目 | 内容 | 状況 |
 | :--- | :--- | :--- | :--- |
 | **Step 1** | **契約設計** | 複数システムからのイベント、エンティティ、名寄せ判定schemaを定義 | 進行中 |
-| **Step 2** | **利用者実装** | lumi-exporter PoCから契約を利用 | 未着手 |
+| **Step 2** | **利用者実装** | lumi-exporter PoCから契約を利用 | 進行中 |
 | **Step 3** | **入力接続** | lumitree/lumidiveの出力を候補schemaへ変換 | 未着手 |
 
 ---
@@ -25,6 +26,7 @@
 ## 決定事項 (ADR一覧)
 
 - [ADR 0001: lumiシリーズ共通イベント契約](adr/0001-common-event-contract.md)
+- [ADR 0002: lumiシリーズの命名規約](adr/0002-lumi-naming-convention.md)
 
 ---
 

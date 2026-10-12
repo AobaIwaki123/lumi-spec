@@ -15,7 +15,9 @@
 共通契約を`lumi-spec`に分離し、JSON Schemaを正とする。各サービスはこのrepoだけに依存し、他のサービスrepoを直接importしない。
 
 - `event-candidate.v1`: ソースごとの正規化イベント。`source_ref`、原文タイトル、`local_date`を必須にする。
+- `event-feed.v1`: イベント候補をHTTPでpullするための`source`、生成時刻、候補配列のenvelope。
 - `entity.v1`: アイドル、グループ、会場、主催者の名前、別名、アイコン、ロゴ、SNS、出所を表す。
+- `entity-feed.v1`: エンティティをHTTPでpullするための`source`、生成時刻、レコード配列のenvelope。
 - `match-decision.v1`: `matched` / `ambiguous` / `unmatched` と候補別スコア、アラート理由を表す。
 - `lumitree`、`lumidive`などの入力アダプターは、各システム固有のIDやURLを`source_ref`に保持する。
 - 共通コアにないソース固有値は`extensions`へ置くが、他システム連携の必須条件にはしない。

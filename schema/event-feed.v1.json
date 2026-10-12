@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/AobaIwaki123/lumi-spec/main/schema/event-feed.v1.json",
+  "title": "Lumi Event Feed v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source", "events"],
+  "properties": {
+    "schema_version": {"const": "lumi.event.feed.v1"},
+    "source": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "events": {
+      "type": "array",
+      "items": {"$ref": "event-candidate.v1.json"}
+    }
+  }
+}

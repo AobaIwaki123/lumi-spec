@@ -7,10 +7,14 @@
 | 契約 | 用途 |
 |---|---|
 | `schema/event-candidate.v1.json` | 各システムから正規化したイベント候補 |
+| `schema/event-feed.v1.json` | イベント候補をHTTPでpullするためのレスポンス包み |
 | `schema/entity.v1.json` | アイドル、グループ、会場、主催者の名前・アイコン・ロゴ・SNS |
+| `schema/entity-feed.v1.json` | エンティティをHTTPでpullするためのレスポンス包み |
 | `schema/match-decision.v1.json` | 名寄せの判定、候補スコア、レビューアラート |
 
 JSON Schemaを正とし、Go型は`event`、`entity`、`match`パッケージで提供します。
+
+命名は、直接使うサービスを`lumitree`のように直結、共通契約・開発者向けツールを`lumi-spec`のようにハイフン付きとする方針です。詳細は[ADR 0002](adr/0002-lumi-naming-convention.md)を参照してください。
 
 ## 方針
 

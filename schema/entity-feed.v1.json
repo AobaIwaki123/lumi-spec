@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/AobaIwaki123/lumi-spec/main/schema/entity-feed.v1.json",
+  "title": "Lumi Entity Feed v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source", "entities"],
+  "properties": {
+    "schema_version": {"const": "lumi.entity.feed.v1"},
+    "source": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "entities": {
+      "type": "array",
+      "items": {"$ref": "entity.v1.json"}
+    }
+  }
+}
