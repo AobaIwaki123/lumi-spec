@@ -11,12 +11,12 @@
     "source_ref": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source", "event_id"],
+      "required": ["source", "record_id"],
       "properties": {
         "source": {"type": "string", "minLength": 1},
-        "event_id": {"type": "string", "minLength": 1},
+        "record_id": {"type": "string", "minLength": 1},
         "url": {"type": "string", "format": "uri"},
-        "calendar_id": {"type": "string"}
+        "collection_id": {"type": "string"}
       }
     },
     "title": {"type": "string", "minLength": 1},
@@ -26,6 +26,30 @@
     "timezone": {"type": "string"},
     "venue": {"type": "string"},
     "performers": {"type": "array", "items": {"type": "string"}},
-    "extensions": {"type": "object", "additionalProperties": {"type": "string"}}
+    "performer_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "organizer_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "extensions": {"type": "object", "additionalProperties": true}
   }
 }

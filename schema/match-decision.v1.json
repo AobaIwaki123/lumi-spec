@@ -10,6 +10,7 @@
     "query_id": {"type": "string", "minLength": 1},
     "status": {"enum": ["matched", "ambiguous", "unmatched"]},
     "selected_candidate_id": {"type": "string"},
+    "top_candidate_id": {"type": "string"},
     "top_score": {"type": "number", "minimum": 0, "maximum": 1},
     "second_score": {"type": "number", "minimum": 0, "maximum": 1},
     "score_margin": {"type": "number", "minimum": 0, "maximum": 1},
@@ -30,7 +31,9 @@
               "title": {"type": "number", "minimum": 0, "maximum": 1},
               "date": {"type": "number", "minimum": 0, "maximum": 1},
               "venue": {"type": "number", "minimum": 0, "maximum": 1},
-              "performers": {"type": "number", "minimum": 0, "maximum": 1}
+              "performers": {"type": "number", "minimum": 0, "maximum": 1},
+              "available_weight": {"type": "number", "minimum": 0, "maximum": 1},
+              "coverage": {"type": "number", "minimum": 0, "maximum": 1}
             }
           }
         }
@@ -43,6 +46,7 @@
       "properties": {
         "type": {"const": "event_match_review"},
         "reason": {"type": "string"},
+        "top_score": {"type": "number", "minimum": 0, "maximum": 1},
         "candidates": {"type": "array", "items": {"type": "string"}}
       }
     }

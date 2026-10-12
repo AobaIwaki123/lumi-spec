@@ -7,14 +7,17 @@
 | 契約 | 用途 |
 |---|---|
 | `schema/event-candidate.v1.json` | 各システムから正規化したイベント候補 |
+| `schema/entity.v1.json` | アイドル、グループ、会場、主催者の名前・アイコン・ロゴ・SNS |
 | `schema/match-decision.v1.json` | 名寄せの判定、候補スコア、レビューアラート |
 
-JSON Schemaを正とし、Go型は`event`と`match`パッケージで提供します。
+JSON Schemaを正とし、Go型は`event`、`entity`、`match`パッケージで提供します。
 
 ## 方針
 
-- 元ソースのID・URL・原文を捨てない
+- 元ソースのID・URL・原文を捨てない。共通の出所IDは`source_ref.record_id`で表す
 - 日付は入力アダプターがタイムゾーン変換した`local_date`を渡す
+- アイコン・ロゴ・SNSは`entity.v1`のアセットとソーシャルリンクで表す
+- 共通コアに入らないソース固有値は`extensions`に保持する。ただし連携ロジックは共通フィールドだけに依存する
 - 同率1位やマージン不足は`ambiguous`として自動統合しない
 - 破壊的な変更はschema versionを上げる
 

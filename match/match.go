@@ -12,10 +12,12 @@ const (
 )
 
 type FeatureScores struct {
-	Title      float64 `json:"title"`
-	Date       float64 `json:"date"`
-	Venue      float64 `json:"venue"`
-	Performers float64 `json:"performers"`
+	Title           float64 `json:"title"`
+	Date            float64 `json:"date"`
+	Venue           float64 `json:"venue"`
+	Performers      float64 `json:"performers"`
+	AvailableWeight float64 `json:"available_weight,omitempty"`
+	Coverage        float64 `json:"coverage,omitempty"`
 }
 
 type CandidateScore struct {
@@ -27,6 +29,7 @@ type CandidateScore struct {
 type Alert struct {
 	Type       string   `json:"type"`
 	Reason     string   `json:"reason"`
+	TopScore   float64  `json:"top_score,omitempty"`
 	Candidates []string `json:"candidates,omitempty"`
 }
 
@@ -35,6 +38,7 @@ type Decision struct {
 	QueryID             string           `json:"query_id"`
 	Status              Status           `json:"status"`
 	SelectedCandidateID string           `json:"selected_candidate_id,omitempty"`
+	TopCandidateID      string           `json:"top_candidate_id,omitempty"`
 	TopScore            float64          `json:"top_score"`
 	SecondScore         float64          `json:"second_score"`
 	ScoreMargin         float64          `json:"score_margin"`
