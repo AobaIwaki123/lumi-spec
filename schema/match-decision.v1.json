@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/AobaIwaki123/lumi-spec/main/schema/match-decision.v1.json",
+  "title": "Lumi Event Match Decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "query_id", "status", "top_score", "second_score", "score_margin", "candidates"],
+  "properties": {
+    "schema_version": {"const": "lumi.event.match_decision.v1"},
+    "query_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["matched", "ambiguous", "unmatched"]},
+    "selected_candidate_id": {"type": "string"},
+    "top_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "second_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "score_margin": {"type": "number", "minimum": 0, "maximum": 1},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "score", "features"],
+        "properties": {
+          "candidate_id": {"type": "string", "minLength": 1},
+          "score": {"type": "number", "minimum": 0, "maximum": 1},
+          "features": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "date", "venue", "performers"],
+            "properties": {
+              "title": {"type": "number", "minimum": 0, "maximum": 1},
+              "date": {"type": "number", "minimum": 0, "maximum": 1},
+              "venue": {"type": "number", "minimum": 0, "maximum": 1},
+              "performers": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          }
+        }
+      }
+    },
+    "alert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "reason"],
+      "properties": {
+        "type": {"const": "event_match_review"},
+        "reason": {"type": "string"},
+        "candidates": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}
