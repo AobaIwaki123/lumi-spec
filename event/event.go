@@ -34,5 +34,6 @@ type Candidate struct {
 	Performers    []string       `json:"performers,omitempty"`
 	PerformerRefs []EntityRef    `json:"performer_refs,omitempty"`
 	OrganizerRefs []EntityRef    `json:"organizer_refs,omitempty"`
+	Links         []Link         `json:"links,omitempty"`
 	Extensions    map[string]any `json:"extensions,omitempty"`
 }
