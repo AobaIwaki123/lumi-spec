@@ -50,6 +50,20 @@
         }
       }
     },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "url"],
+        "properties": {
+          "kind": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "format": "uri"},
+          "label": {"type": "string"},
+          "origin": {"type": "string"}
+        }
+      }
+    },
     "extensions": {"type": "object", "additionalProperties": true}
   }
 }
